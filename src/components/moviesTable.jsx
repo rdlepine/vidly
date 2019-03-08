@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import TableHeader from './common/tableHeader'
 import TableBody from './common/tableBody'
+import Like from './common/like'
 
 class MoviesTable extends Component {
    
@@ -10,9 +11,9 @@ class MoviesTable extends Component {
         {path: 'numberInStock', label: 'Stock'},
         {path: 'dailyRentalRate', label: 'Rate'},
         {key: 'like',
-        content: <Like movie => liked={movie.liked} this.props.onClick={ () => this.props.onLike(movie)} /> },
+         content: movie => (<Like liked={movie.liked} onClick={ () => this.props.onLike(movie)} />) },
         {key: 'delete',
-        content: <button onClick={ () => this.props.onDelete(movie)} >Delete</button> },
+        content: movie => (<button className="btn btn-danger" onClick={ () => this.props.onDelete(movie)} >Delete</button>) },
       
         
    ]
