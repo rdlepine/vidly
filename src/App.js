@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Movie from './components/movie'
 
+
 class App extends Component {
   render() {
     return (
