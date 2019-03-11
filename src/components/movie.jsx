@@ -26,10 +26,9 @@ class Movie extends Component {
     }
 
 
-    removeMovie = (_id) => {
+    removeMovie = (m) => {
        const {movies} = this.state
-
-       let remainingMovies  = movies.filter( (movie) => movie._id !== _id)
+       let remainingMovies  = movies.filter( (movie) => movie._id !== m._id)
        this.setState({movies: remainingMovies})
     }
 
@@ -92,7 +91,7 @@ class Movie extends Component {
                     </div>
                     <div className="col">
                         <h2>Showing {allMovies.length} Movies in the database</h2>
-                        <MoviesTable onSort={this.handleSort} sortColumn={sortColumn} onDelete={this.onDelete} onLike={this.toggleLike} movies={movies} />
+                        <MoviesTable onSort={this.handleSort} sortColumn={sortColumn} onDelete={this.removeMovie} onLike={this.toggleLike} movies={movies} />
                         <Pagination 
                                 itemsCount={allMovies.length}
                                 pageSize={pageSize}
